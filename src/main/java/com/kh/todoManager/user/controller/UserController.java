@@ -146,6 +146,7 @@ public class UserController {
 
 		if(loginUser != null) {
 			session.setAttribute("loginUser", loginUser);
+			System.out.println("아이좋아");
 			return "success";
 		}else {
 			return "failed";
