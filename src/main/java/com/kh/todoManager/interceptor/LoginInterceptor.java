@@ -15,6 +15,11 @@ public class LoginInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		// OPTIONS 요청에 대해 인증체크 없이 허용. CORS preflight 요청
+		if(request.getMethod().equalsIgnoreCase("OPTIONS")) {
+			response.setStatus(HttpServletResponse.SC_OK); // 200
+			return true;
+		}
 		
 		HttpSession session = request.getSession();
 		

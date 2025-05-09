@@ -131,27 +131,6 @@ public class UserController {
 			return "failed";
 		}
 	}
-
-	@PostMapping("login1")
-	public String user1Login(@RequestBody Map<String, Object> requestBody, HttpSession session) {
-		String id = (String)requestBody.get("userId");
-		String pwd = (String)requestBody.get("userPwd");
-
-		User user = new User();
-		user.setUserId(id);
-		user.setUserPwd(pwd);
-
-		User loginUser = uSer.login(user);
-		System.out.println(loginUser);
-
-		if(loginUser != null) {
-			session.setAttribute("loginUser", loginUser);
-			System.out.println("아이좋아");
-			return "success";
-		}else {
-			return "failed";
-		}
-	}
 	
 }
 
